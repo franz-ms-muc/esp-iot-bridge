@@ -103,6 +103,14 @@ static void esp_bridge_create_button(void)
 
 void app_main(void)
 {
+
+    printf("MALLOC_CAP_: 8bit %d, 32bit %d, SPIRAM %d\n",
+        heap_caps_get_free_size(MALLOC_CAP_8BIT),
+        heap_caps_get_free_size(MALLOC_CAP_32BIT),
+		heap_caps_get_free_size(MALLOC_CAP_SPIRAM)
+		);
+
+
     esp_log_level_set("*", ESP_LOG_INFO);
 
     esp_storage_init();
@@ -126,4 +134,17 @@ void app_main(void)
 #if defined(CONFIG_APP_BRIDGE_USE_WIFI_PROVISIONING_OVER_BLE)
     esp_bridge_wifi_prov_mgr();
 #endif /* CONFIG_APP_BRIDGE_USE_WIFI_PROVISIONING_OVER_BLE */
+
+
+
+
+
+    printf("MALLOC_CAP_: 8bit %d, 32bit %d, SPIRAM %d\n",
+        heap_caps_get_free_size(MALLOC_CAP_8BIT),
+        heap_caps_get_free_size(MALLOC_CAP_32BIT),
+		heap_caps_get_free_size(MALLOC_CAP_SPIRAM)
+		);
+
+
+
 }
